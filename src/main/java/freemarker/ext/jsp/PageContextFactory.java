@@ -38,9 +38,9 @@ class PageContextFactory {
                 try {
                     PageContext.class.getMethod("getExpressionEvaluator", (Class[]) null);
                     return Class.forName("freemarker.ext.jsp._FreeMarkerPageContext2");
-                }
-                catch(NoSuchMethodException e2) {
-                    return Class.forName("freemarker.ext.jsp._FreeMarkerPageContext1");
+                } catch (NoSuchMethodException e2) {
+                    throw new IllegalStateException(
+                            "Since FreeMarker 2.3.24, JSP support requires at least JSP 2.0.");
                 }
             }
         }
